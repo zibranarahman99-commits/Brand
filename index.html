@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="description" content="Thoughtfully chosen home and kitchen essentials. Shop useful everyday products with easy WhatsApp ordering.">
+  <title>Rahman Home — Everyday Home Essentials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">Thoughtful finds for a calmer home · Orders across India</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Rahman Home home">
+      <span class="brand-mark">R</span>
+      <span><strong>RAHMAN HOME</strong><small>EVERYDAY ESSENTIALS</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#shop">Shop</a><a href="#story">Our approach</a><a href="#faq">FAQs</a>
+    </nav>
+    <button class="cart-button" id="openCart" aria-label="Open shopping cart">Bag <span id="cartCount">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THE EVERYDAY EDIT</p>
+        <h1>A little more order.<br><em>A lot more ease.</em></h1>
+        <p class="hero-text">Useful home and kitchen finds, chosen to make everyday routines feel simpler.</p>
+        <a class="button button-dark" href="#shop">Explore the collection <span aria-hidden="true">↗</span></a>
+        <div class="hero-note"><span class="tiny-dot"></span> Simple finds. Thoughtful living.</div>
+      </div>
+      <div class="hero-art" role="img" aria-label="Neutral-toned kitchen counter with organised home essentials">
+        <div class="art-sun"></div><div class="art-shelf"></div>
+        <div class="art-vase vase-one"></div><div class="art-vase vase-two"></div>
+        <div class="art-board"></div><div class="art-jar jar-one"><i></i></div><div class="art-jar jar-two"><i></i></div>
+        <div class="art-leaf leaf-one"></div><div class="art-leaf leaf-two"></div>
+        <span class="art-caption">THE HOME EDIT / 01</span>
+      </div>
+    </section>
+
+    <section class="trust-row" aria-label="Store highlights">
+      <div><span>01</span><p>Useful everyday finds</p></div><div><span>02</span><p>Clear, upfront pricing</p></div><div><span>03</span><p>Personal order support</p></div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">SHOP THE COLLECTION</p><h2>Small things, <em>better living.</em></h2></div>
+        <p class="section-intro">Browse our starter collection. Product availability and final delivery charges are confirmed before payment.</p>
+      </div>
+      <div class="shop-controls">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search products…" aria-label="Search products"></label>
+        <div class="category-pills" id="categoryPills">
+          <button class="pill active" data-category="All">All products</button>
+          <button class="pill" data-category="Kitchen">Kitchen</button>
+          <button class="pill" data-category="Storage">Storage</button>
+          <button class="pill" data-category="Home">Home</button>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <p class="empty-state hidden" id="emptyState">No products match that search. Try another term.</p>
+    </section>
+
+    <section class="story-section" id="story">
+      <div class="story-number">RH / NOTES</div>
+      <div><p class="eyebrow">OUR APPROACH</p><h2>Less clutter.<br><em>More considered choices.</em></h2></div>
+      <p>Rahman Home is a small online storefront for practical home and kitchen essentials. We focus on useful products, clear communication and straightforward ordering. Every order is confirmed with you before it is sent to fulfilment.</p>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <p class="eyebrow">GOOD TO KNOW</p><h2>A few quick answers.</h2>
+      <details><summary>How does delivery work?</summary><p>Delivery times and charges depend on the supplier and your PIN code. We confirm both before accepting your order.</p></details>
+      <details><summary>Can I pay online?</summary><p>Yes, the site supports a UPI payment hand-off after you configure your UPI ID in <code>config.js</code>. Payment is not automatically verified by this static website; confirm receipt in your own UPI/bank app before asking a supplier to dispatch.</p></details>
+      <details><summary>What if an item arrives damaged?</summary><p>Contact us promptly with your order details and photos. The applicable return or replacement terms will be confirmed before purchase.</p></details>
+      <details><summary>Are all items always in stock?</summary><p>Availability can change. We check stock with the supplier before confirming your order.</p></details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#"><span class="brand-mark">R</span><span><strong>RAHMAN HOME</strong><small>EVERYDAY ESSENTIALS</small></span></a>
+    <p>Useful finds for the spaces you live in.</p>
+    <div class="footer-links"><a href="#shop">Shop</a><a href="#faq">FAQs</a><a id="footerWhatsApp" href="#">WhatsApp us</a></div>
+    <small>© <span id="year"></span> Rahman Home. Product prices and availability may change.</small>
+  </footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your bag <span id="drawerCount">(0)</span></h2></div><button class="icon-button" id="closeCart" aria-label="Close cart">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty"><span>○</span><h3>Your bag is waiting.</h3><p>Add a useful find to get started.</p><button class="button button-outline" id="continueShopping">Continue shopping</button></div>
+    <div class="cart-summary hidden" id="cartSummary">
+      <div class="summary-line"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
+      <p class="summary-note">Shipping is confirmed separately before payment.</p>
+      <button class="button button-dark full-button" id="checkoutButton">Continue to checkout <span>→</span></button>
+    </div>
+  </aside>
+
+  <div class="modal-backdrop hidden" id="checkoutModal">
+    <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <div class="modal-header"><div><p class="eyebrow">ALMOST THERE</p><h2 id="checkoutTitle">Order details</h2></div><button class="icon-button" id="closeCheckout" aria-label="Close checkout">×</button></div>
+      <form id="checkoutForm">
+        <div class="form-grid">
+          <label>Full name<input name="name" autocomplete="name" required maxlength="80" placeholder="Your name"></label>
+          <label>Phone number<input name="phone" inputmode="tel" autocomplete="tel" required pattern="[0-9+ ()-]{10,18}" placeholder="10-digit mobile number"></label>
+          <label class="wide">Delivery address<textarea name="address" autocomplete="street-address" required maxlength="300" rows="2" placeholder="House / street / area"></textarea></label>
+          <label>City<input name="city" autocomplete="address-level2" required maxlength="60" placeholder="City"></label>
+          <label>PIN code<input name="pincode" inputmode="numeric" autocomplete="postal-code" required pattern="[0-9]{6}" placeholder="6-digit PIN"></label>
+        </div>
+        <div class="order-preview"><div><span>Items subtotal</span><strong id="checkoutSubtotal">₹0</strong></div><p>Shipping and stock will be confirmed by WhatsApp before fulfilment.</p></div>
+        <p class="payment-label">Choose how to continue</p>
+        <div class="payment-options">
+          <label class="payment-option"><input type="radio" name="payment" value="whatsapp" checked><span><strong>WhatsApp order</strong><small>Confirm availability and payment details with us</small></span></label>
+          <label class="payment-option"><input type="radio" name="payment" value="upi"><span><strong>Pay by UPI</strong><small>Open your UPI app, then send order details by WhatsApp</small></span></label>
+        </div>
+        <p class="payment-warning" id="paymentWarning">Do not pay until stock, shipping and the final amount are confirmed.</p>
+        <button class="button button-dark full-button" type="submit" id="placeOrder">Continue securely <span>→</span></button>
+        <p class="privacy-note">Your details are used to process this order. Do not enter card details on this site.</p>
+      </form>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
